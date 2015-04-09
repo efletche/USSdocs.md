@@ -15,7 +15,7 @@ The first seven elements of the parameter line is referred to the short paramete
 |6     |Prior stddev |Standard deviation for the PRIOR, used to calculate likelihood of the current parameter value.  This value is ignored if Prior_type is –1       |
 |7     |PHASE        |Phase in which parameter begins to be estimated.  A negative value causes the parameter to retain its INIT value (or value read from PAR file). |
 
-#Full Parameter line Syntax 
+##Full Parameter line Syntax 
 
 The full parameter line syntax for the *Mortality-Growth* and *Selectivity* sections provides additional controls to give the parameter time-varying properties.  These are listed briefly below and described in more detail in the section Time Varying Parameter Options found at the end of the control file syntax section.
 
