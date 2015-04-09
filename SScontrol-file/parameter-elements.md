@@ -1,6 +1,6 @@
 #Parameter Line Elements
 
-The control file defines the parameters used by the model. The Parameter lines will be used define control file parameters for *natural mortality and growth*; *spawner recruitment, initial F and catchability*; and *selectivity*.   
+The control file defines the parameters used by the model. The Parameter lines will be used to define control file parameters for *natural mortality and growth*; *spawner recruitment, initial F and catchability*; and *selectivity*.   
 
 ## Short Parameter Line Syntax
 The first seven elements of the parameter line is referred to the short parameter line. This syntax is used for define *spawner recruitment, initial F and catchability* in the control file
