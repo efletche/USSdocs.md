@@ -18,7 +18,7 @@ SS Model File Stucture
 
 #Control File
 
-*Parameter Elements 
+* [Parameter Elements](SScontrol-file/parameter-elements.md) 
 
 #Output Files
 
