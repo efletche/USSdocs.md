@@ -3,8 +3,8 @@
 ## Input Files 
 
 1. STARTER.SS:  required file containing filenames of the data file and the control file plus other run controls (required). 
-2. <datafile>:  file containing model dimensions and the data with file extension .dat (required) 
-3. <control file>:  file containing set-up for the parameters with file extension .ctl (required) 
+2. *datafile*:  file containing model dimensions and the data with file extension .dat (required) 
+3. *control file*:  file containing set-up for the parameters with file extension .ctl (required) 
 4. FORECAST.SS:  file containing specifications for forecasts (required) 
 5. SS3.PAR:  previously created parameter file that can be read to overwrite the initial parameter values in the control file (optional) 
 6. RUNNUMBER.SS:  file containing a single number used as runnumber in output to CUMREPORT.SSO and in the processing of PROFILEVALUES.SS (optional) 7. PROFILEVALUES.SS:  file contain special conditions for batch file processing (optional)  
@@ -23,7 +23,7 @@
 11. Control.ss_new:  Updated version of the control file with final parameter values replacing the Init parameter values. 
 12. Starter.ss_new:  New version of the starter file with annotations 
 13. Forecast.ss_new:  New version of the forecast file with annotations. 
-14. REBUILD.DAT:  Output formatted for direct input to Andre Puntís rebuilding analysis package. Cumulative output is output to REBUILD.SS (useful when doing MCMC or profiles). 
+14. REBUILD.DAT:  Output formatted for direct input to Andre Punt‚Äôs rebuilding analysis package. Cumulative output is output to REBUILD.SS (useful when doing MCMC or profiles). 
  
 ## Auxiliary Excel Files 
 
@@ -33,13 +33,13 @@
   b. Instructions are noted in the XLS file but, to summarize 
     i. Users should only change entries in a yellow box. 
     ii. Parameter values are changed manually or using sliders, depending on the value of cell I5. 
-  c. It is recommend that users select plausible starting values for doublenormal selectivity options, especially when estimating all 6 parameters   d. Please note that the XLS does NOT show the impact of setting parameters 5 or 6 to ì-999î.  In SS3, this allows the the value of selectivity at the initial and final age or length to be determined by the shape of the doublenormal arising from parameters 1-4, rather than forcing the selectivity at the intial and final age or length to be estimated separately using the value of parameters 5 and 6. 
+  c. It is recommend that users select plausible starting values for doublenormal selectivity options, especially when estimating all 6 parameters   d. Please note that the XLS does NOT show the impact of setting parameters 5 or 6 to ‚Äú-999‚Äù.  In SS3, this allows the the value of selectivity at the initial and final age or length to be determined by the shape of the doublenormal arising from parameters 1-4, rather than forcing the selectivity at the intial and final age or length to be estimated separately using the value of parameters 5 and 6. 
 3. SELEX17_age_randwalk.XLS:  
   a. This excel file is used to show the shape of age-based selectivity arising from option 17 given user-selected parameter values 
   b. Users should only change entries in the yellow box.  
   c. The red box is the maximum cumulative value, which is subtracted from all cumulative values.  This is then exponentiated to yield the estimated selectivity curve.  Positive values yield increasing selectivity and negative values yield decreasing selectivity. 
 4. PRIOR-TESTER.XLS:  
-  a. The ìcompareî tab of this spreadsheet shows how the various options for defining parameter priors work 
+  a. The ‚Äúcompare‚Äù tab of this spreadsheet shows how the various options for defining parameter priors work 
 5. SS-Control_Setup.XLS: 
   a. Shows how to setup an example control file for SS 
 6. SS-Data_Input.XLS:  
