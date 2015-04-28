@@ -6,10 +6,10 @@
 Required file containing filenames of the data file and the control file plus other run controls **(required)**.
 
 #### *datafile*
-File containing model dimensions and the data with file extension .dat **(required)**
+File containing model dimensions and the data with file extension `.dat` **(required)**
 
 #### *control file*
-file containing set-up for the parameters with file extension .ctl **(required)**
+file containing set-up for the parameters with file extension `.ctl` **(required)**
 
 #### FORECAST.SS
 file containing specifications for forecasts **(required)**
@@ -18,7 +18,7 @@ file containing specifications for forecasts **(required)**
 previously created parameter file that can be read to overwrite the initial parameter values in the control file (optional)
 
 #### RUNNUMBER.SS
-file containing a single number used as runnumber in output to *CUMREPORT.SSO and in the processing of *PROFILEVALUES.SS* (optional)
+file containing a single number used as `runnumber` in output to *CUMREPORT.SSO* and in the processing of *PROFILEVALUES.SS* (optional)
 
 #### PROFILEVALUES.SS  
 file contain special conditions for batch file processing (optional)  
@@ -28,7 +28,7 @@ file contain special conditions for batch file processing (optional)
 Standard ADMB output files
 
 #### Echoinput.sso
-This file is produced while reading the input files and includes an annotated echo of the input.  The sole purpose of this output file is debugging input errors.
+This file is produced while reading the input files and includes an annotated echo of the input. The sole purpose of this output file is debugging input errors.
 
 #### Warning.sso
 This file contains a list of warnings generated during program execution.
@@ -40,7 +40,7 @@ Contains details of selectivity parameters and resulting vectors.  This is writt
 This file is the primary report file.
 
 #### CompReport.sso
-Beginning with version 3.03, the composition data has been separated into a dedicated report
+Composition data report file.
 
 #### FORECAST-REPORT.sso
 Output of management quantities and for forecasts
