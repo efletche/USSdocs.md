@@ -1,16 +1,18 @@
 #TOC
 
-#Introduction
+#Introduction and Basic SS Workflow
 
-Introduction
+[Introduction](intro/intro.md)
 
-Starting SS
+[Starting SS](SSworkflow/start-SS.md)
 
-SS Model File Stucture
+[SS Input and Ouput File Stucture](SSworkflow/ss-file-structure.md)
 
-#Starter File 
+[Auxiliary Excel Files](auxiliary-xls-files.md)
 
-#Forecast File 
+#Starter File
+
+#Forecast File
 
 #Optional Input Files
 
@@ -18,13 +20,13 @@ SS Model File Stucture
 
 #Control File
 
-* [Parameter Elements](SScontrol-file/parameter-elements.md) 
+* [Parameter Elements](SScontrol-file/parameter-elements.md)
 
 #Output Files
 
 #Running SS
 
-#Special Scenarios 
+#Special Scenarios
 
 #Appendix
 
