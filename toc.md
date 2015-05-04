@@ -8,7 +8,7 @@
 
 [SS Input and Ouput File Stucture](SSworkflow/ss-file-structure.md)
 
-[Auxiliary Excel Files](auxiliary-xls-files.md)
+[Auxiliary Excel Files](SSworkflow/auxiliary-xls-files.md)
 
 #Starter File
 
