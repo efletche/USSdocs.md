@@ -1,8 +1,8 @@
 #TOC
 
-#Introduction and Basic SS Workflow
+##Introduction and Basic Stock Synthesis Workflow
 
-[Introduction](intro/intro.md)
+[Introduction to Stock Synthesis](intro/intro.md)
 
 [Starting SS](SSworkflow/start-SS.md)
 
@@ -10,24 +10,24 @@
 
 [Auxiliary Excel Files](SSworkflow/auxiliary-xls-files.md)
 
-#Starter File
+##Starter File
 
-#Forecast File
+##Forecast File
 
-#Optional Input Files
+##Data File
 
-#Data File
-
-#Control File
+##Control File
 
 * [Parameter Elements](SScontrol-file/parameter-elements.md)
 
-#Output Files
+##Optional Input Files
 
-#Running SS
+##Output Files
 
-#Special Scenarios
+##Running SS
 
-#Appendix
+##Special Scenarios
 
-#Simple Model Example Input Files
+##Appendix
+
+##Simple Model Example Input Files
