@@ -6,7 +6,7 @@ Some parameters in the starter file may require additional information in the im
 
 ## File Structure
 
-* [Starter comment `#C`](##Starter-comment-`#C`)
+* [Starter comment `#C`](#starter-comment-c)
 * Data Filename
 * Control Filename
 * Initial Parameter Value
