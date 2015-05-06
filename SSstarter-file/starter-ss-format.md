@@ -7,10 +7,10 @@ Some parameters in the starter file may require additional information in the im
 ## File Structure
 
 * [Starter comment `#C`](#starter-comment-c)
-* Data Filename
-* Control Filename
-* Initial Parameter Value
-* Run Display Detail
+* [Data Filename](#data-filename)
+* [Control Filename](#control-filename)
+* [Initial Parameter Values](#initial-parameter-values)
+* [Run Display Detail](#run-display-detail)
 * Detailed age-sturcture Report
 * Checkup
 * Parameter Trace
@@ -39,3 +39,32 @@ Some parameters in the starter file may require additional information in the im
 Starter files must begin with `#C`. Any remaining characters after the `#C` in that line is free form.
 
 All lines in this file beginning with `#C` will be retained and written on the top of several output files.
+
+## Data Filename
+Filename of data file
+
+## Control Filename
+Filename of control file
+
+## Inital Parameter Values
+option | Description
+-------| ----
+0      | Use Values in the Control File
+1      | Use _SS3.PAR_ after reading setup in the control file
+
+*Typical value: 0*
+
+Do not use this if there have been any changes to the control file that would alter the number or order of parameters stored in the *SS3.PAR* file.
+
+Values in the *SS3.PAR* file can be edited __*carefully*__.
+
+## Run Display Detail
+option | Description
+-------| ----
+0      | None other than ADMB outputs
+1      | One brief line of display for each iteration
+2      | Fuller display per iteration
+
+*Typical value: 1*
+
+With option 2, the display shows the value of each logL component for each iteration and it displays where crash penalties are created.
