@@ -11,8 +11,8 @@ Some parameters in the starter file may require additional information in the im
 * [Control Filename](#control-filename)
 * [Initial Parameter Values](#initial-parameter-values)
 * [Run Display Detail](#run-display-detail)
-* Detailed age-sturcture Report
-* Checkup
+* [Detailed age-sturcture Report](#detailed-age-structured-report-in-report-sso)
+* [Checkup](#checkup)
 * Parameter Trace
 * Cumulative Report
 * Full Priors
@@ -47,7 +47,7 @@ Filename of data file
 Filename of control file
 
 ## Inital Parameter Values
-option | Description
+Option | Description
 -------| ----
 0      | Use Values in the Control File
 1      | Use _SS3.PAR_ after reading setup in the control file
@@ -59,7 +59,7 @@ Do not use this if there have been any changes to the control file that would al
 Values in the *SS3.PAR* file can be edited __*carefully*__.
 
 ## Run Display Detail
-option | Description
+Option | Description
 -------| ----
 0      | None other than ADMB outputs
 1      | One brief line of display for each iteration
@@ -68,3 +68,21 @@ option | Description
 *Typical value: 1*
 
 With option 2, the display shows the value of each logL component for each iteration and it displays where crash penalties are created.
+
+## Detailed age-structured report in REPORT.sso
+Option | Description
+-------| ----
+0      | Omit catch-at-age for each fleet and cohort
+1      | Include all output
+
+*Typical Value: 1*
+
+## Checkup
+Option | Description
+-------| ----
+0      | Omit
+1      | Write detailed intermediate calculations to *CHECKUP.SSO* during first call
+
+*Typical Value: 0*
+
+*CHECKUP.SSO* is primarily used for debugging purposes. The output is unformatted and undocumented.
