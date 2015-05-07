@@ -36,6 +36,9 @@ This file contains a list of warnings generated during program execution.
 #### checkup.sso
 Contains details of selectivity parameters and resulting vectors.  This is written during the first call of the objective function.
 
+### parmtrace.sso
+The contents of this output can be used to determine which values are changing when a model approaches a crash condition.
+
 #### Report.sso:  
 This file is the primary report file.
 

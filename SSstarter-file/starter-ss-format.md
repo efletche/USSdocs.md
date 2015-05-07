@@ -13,7 +13,7 @@ Some parameters in the starter file may require additional information in the im
 * [Run Display Detail](#run-display-detail)
 * [Detailed age-sturcture Report](#detailed-age-structured-report-in-report-sso)
 * [Checkup](#checkup)
-* Parameter Trace
+* [Parameter Trace](#parameter-trace)
 * Cumulative Report
 * Full Priors
 * Soft Bounds
@@ -86,3 +86,18 @@ Option | Description
 *Typical Value: 0*
 
 *CHECKUP.SSO* is primarily used for debugging purposes. The output is unformatted and undocumented.
+
+## Parameter Trace
+Option | Description
+-------| ----
+0      | omit
+1      | Write good iterations and active parameters
+2      | Write good iterations and all parameters
+3      | Write every_iter and all parameters
+4      | Write every_iter and active parameters
+
+*Typical value: 0*
+
+This controls the output to *PARMTRACE.SSO*
+
+The contents of this output can be used to determine which values are changing when a model approaches a crash condition.  It also can be used to investigate patterns of parameter changes as model convergence slowly moves along a ridge.
