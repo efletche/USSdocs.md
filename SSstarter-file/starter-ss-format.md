@@ -11,7 +11,7 @@ Some parameters in the starter file may require additional information in the im
 * [Control Filename](#control-filename)
 * [Initial Parameter Values](#initial-parameter-values)
 * [Run Display Detail](#run-display-detail)
-* [Detailed age-sturcture Report](#detailed-age-structured-report-in-report-sso)
+* [Detailed age-sturcture Report](#detailed-age-structured-report-in-reportsso)
 * [Checkup](#checkup)
 * [Parameter Trace](#parameter-trace)
 * Cumulative Report
