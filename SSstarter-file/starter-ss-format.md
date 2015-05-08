@@ -166,6 +166,7 @@ Any Positive integer | Exit after completing this phase
 *Typical Value: 8*
 
 Option `0` is useful for:
+
 1. Quickly reading in a messy set of input files and producing the annotated *CONTROL.SS_new* and *DATA.SS_new* files
 2. Or examining model output based solely on input parameter values.  
 
