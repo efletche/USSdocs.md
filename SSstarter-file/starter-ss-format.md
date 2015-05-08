@@ -14,13 +14,13 @@ Some parameters in the starter file may require additional information in the im
 * [Detailed age-sturcture Report](#detailed-age-structured-report-in-reportsso)
 * [Checkup](#checkup)
 * [Parameter Trace](#parameter-trace)
-* Cumulative Report
-* Full Priors
-* Soft Bounds
-* Data File Output
-* Turn Off estimation
-* MCMC burnin
-* MCMC thin
+* [Cumulative Report](#cumulative-report)
+* [Full Priors](#full-priors)
+* [Soft Bounds](#soft-bounds)
+* [Data File Output](#data-file-output)
+* [Turn Off estimation](#turn-off-estimation)
+* [MCMC burn](#mcmc-burn)
+* [MCMC thin](#mcmc-thin)
 * Jitter
 * SD Report Start
 * SD Report End
@@ -32,6 +32,7 @@ Some parameters in the starter file may require additional information in the im
 * Depletion basis
 * Depletion denominator fraction
 * SPR report basis
+* End Of File
 
 ---
 
@@ -93,11 +94,85 @@ Option | Description
 0      | omit
 1      | Write good iterations and active parameters
 2      | Write good iterations and all parameters
-3      | Write every_iter and all parameters
-4      | Write every_iter and active parameters
+3      | Write every iteration and all parameters
+4      | Write every iteration and active parameters
 
 *Typical value: 0*
 
 This controls the output to *PARMTRACE.SSO*
 
 The contents of this output can be used to determine which values are changing when a model approaches a crash condition.  It also can be used to investigate patterns of parameter changes as model convergence slowly moves along a ridge.
+
+## Cumulative Report
+Option | Description
+-------| ----
+0      | Omit
+1      | Brief
+2      | Full
+
+*Typical Value: 1*
+
+Controls reporting to the file *CUMREPORT.SSO*.
+
+This cumulative report is useful when accumulating summary information from likelihood profiles or when simply accumulating a record of all model runs within the current subdirectory.
+
+## Full Priors
+Option | Description
+-------| ----
+0      | Only calculate priors for active parameters
+1      | Calculate priors for all parameters that have a defined prior
+
+*Typical Value: 1*
+
+Enabling the full priors (with the option set to `1`) causes all priors to be calculated. With this option off (as `0`), the total logL, which includes the logL for priors would change between model phases as more parameters become active.
+
+
+## Soft Bounds
+Option | Description
+-------| ----
+0      | Omit
+1      | Use
+
+*Typical Value: 1*
+
+The soft Bound option creates a weak symmetric beta penalty for the selectivity parameters.
+
+Soft bounds becomes important when estimating selectivity functions in which the values of some of the parameters cause other parameters to have negligible gradients, or when bounds have been set too widely such that a parameter drifts into a region in which it has negligible gradient. Therefore, soft bound creates a weak penalty to move parameters away from the bounds.
+
+## Data File Output
+Option | Description
+-------| ----
+0      | None
+1      | Output an annotated replicate of the data input file
+2      | Add a second data file containing the model's expected values with no error added
+3 to N | Add *N-2* parametric bootstrap data files
+
+*Typical value: 1*
+
+All output files are sequentially output to *DATA.SS_new* and will need to be parsed by the user into separate data files.
+
+The output from the input data file makes no changes, so retains the order of the original file.
+
+Output files 2 to N contain only observations that have not been excluded through use of the negative year denotation, and the order of these output observations is as processed by the model. The *N-obs* values are adjusted accordingly. At this time, the tag recapture data does not output to *DATA.SS_new*.
+
+
+## Turn Off Estimation
+Option | Description
+-------| ----
+-1     | Exit After reading input files
+0      | Exit after reading one call to the calculation routines and production of _*.SSO_ and _*.SS_New_ files
+Any Positive integer | Exit after completing this phase
+
+*Typical Value: 8*
+
+Option `0` is useful for:
+1. Quickly reading in a messy set of input files and producing the annotated *CONTROL.SS_new* and *DATA.SS_new* files
+2. Or examining model output based solely on input parameter values.  
+
+Similarly, the value option allows examination of model output after completing a specified phase.  Also see usage note for restarting from a specified phase.
+
+## MCMC burn
+Burn value for MCMC runs
+
+## MCMC thin
+Thinning value for MCMC runs 
