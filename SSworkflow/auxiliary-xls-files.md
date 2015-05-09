@@ -1,6 +1,5 @@
 # Auxiliary Excel Files
-<!--TODO: Verify inclusion of excel files to SS -->
-These excel helper files handle Stock Synthesis output and ecosystem modeling with SS. These auxiliary files may not (?) be included with SS installation.
+These excel helper files handle Stock Synthesis output and serves as an verification to see if SS model is producing the intended values. SS does not generate these auxiliary files and may they may not be included in a typical SS distribution.
 
 #### SS3-OUTPUT.XLSX
 Excel file with macros to read *report.sso* and display results
