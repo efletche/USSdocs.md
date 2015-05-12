@@ -177,3 +177,31 @@ Burn value for MCMC runs
 
 ## MCMC thin
 Thinning value for MCMC runs 
+
+## Jitter
+Option | Description
+-------| ----
+Any Positive number | Adds a small random jitter to the initial parameter values
+
+*Typical Value: 0.0*
+
+The *Jitter* factor is multiplied by a random normal deviation *rdev=N(0,1)*, to a transformed parameter value based upon the predefined parameter bounds as:
+
+<!--TODO: Embed math equations in GFM -->
+```
+                               P    - P    + 0.0.0000002       
+          1                     max    min                     
+temp =  - - rdev * jitter * ln(------------------------- - 1) 
+          2                    P    - P    + 0.0.0000001       
+                                val    min                     
+
+```
+with the final *jittered* setting parameter value back transformed as:
+
+```
+                     P    - P     
+                      max    min  
+P     =  P     +  ----------------
+ new      min           - 2 * temp
+                  1 + e           
+```
