@@ -21,9 +21,9 @@ Some parameters in the starter file may require additional information in the im
 * [Turn Off estimation](#turn-off-estimation)
 * [MCMC burn](#mcmc-burn)
 * [MCMC thin](#mcmc-thin)
-* Jitter
-* SD Report Start
-* SD Report End
+* [Jitter](#jitter)
+* [SD Report Start](#sd-report-start)
+* [SD Report End](#sd-report-end)
 * Extra SD Report Years
   * (If Extra Report Years > 0) Vector of Extra Report Years
 * Final convergence
@@ -194,7 +194,6 @@ The *Jitter* factor is multiplied by a random normal deviation *rdev=N(0,1)*, to
 temp =  - - rdev * jitter * ln(------------------------- - 1) 
           2                    P    - P    + 0.0.0000001       
                                 val    min                     
-
 ```
 with the final *jittered* setting parameter value back transformed as:
 
@@ -205,3 +204,20 @@ P     =  P     +  ----------------
  new      min           - 2 * temp
                   1 + e           
 ```
+
+## SD Report Start
+Option  | Description
+--------|------------
+-1      | Begin annual SD report in start year
+year    | Begin SD report this year
+
+*Typical Value: -1*
+
+## SD Report End
+Option  | Description
+--------|------------
+-1      | End annual SD report in end year
+-2      | End annual SD report in last forecast year
+year    | End SD annual report in this year
+
+*Typical Value: -1*
