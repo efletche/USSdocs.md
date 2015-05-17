@@ -240,5 +240,5 @@ Vector of years for additional reporting.
 
 *Example Values:*   
 ```
-1940 1950
+1940 1950 #vector of year values
 ```
