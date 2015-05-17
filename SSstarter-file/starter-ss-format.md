@@ -24,8 +24,8 @@ Some parameters in the starter file may require additional information in the im
 * [Jitter](#jitter)
 * [SD Report Start](#sd-report-start)
 * [SD Report End](#sd-report-end)
-* Extra SD Report Years
-  * (If Extra Report Years > 0) Vector of Extra Report Years
+* [Extra SD Report Years](#extra-sd-report-years)
+  * (If Extra Report Years > 0) [Vector of Extra Report Years](#sd-reporting-years)
 * Final convergence
 * Retrospective year
 * Summary biomass min age
@@ -221,3 +221,24 @@ Option  | Description
 year    | End SD annual report in this year
 
 *Typical Value: -1*
+
+## Extra SD Report Years
+Option  | Description
+--------|------------
+0       | none
+Any Positive Interger | Number of years to read
+
+*Typical Value: 2*
+
+In a long time series appilication, the model variance calculations will be smaller and faster if not all years are included in the SD report. For example, the annual SD report could start at 1960 and the extra option could select SD report in each decade before then.
+
+### Condition: If Extra SD Report Years > 0 
+If the value of *Extra SD Report Years* > 0, include the following parameter line after [Extra SD Report Years](#extra-sd-report-years).
+
+#### SD Reporting Years
+Vector of years for additional reporting.
+
+*Example Values:*   
+```
+1940 1950
+```
