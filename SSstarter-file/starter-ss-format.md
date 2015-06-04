@@ -327,7 +327,7 @@ In addition to SPR, an additional proxy for annual F can be specified in this pa
 ## Condition: if F_std report units = 4
 If the value of *F_std report units* (or *F_report_units*) is 4 include the following parameter line after [F_std report units](#fstd-report-units).
 
-###Age Range
+#### Age Range
 
 *Typical Value: 14 17*
 
