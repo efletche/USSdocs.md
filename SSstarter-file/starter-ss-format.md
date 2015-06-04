@@ -26,13 +26,16 @@ Some parameters in the starter file may require additional information in the im
 * [SD Report End](#sd-report-end)
 * [Extra SD Report Years](#extra-sd-report-years)
   * (If Extra Report Years > 0) [Vector of Extra Report Years](#sd-reporting-years)
-* Final convergence
-* Retrospective year
-* Summary biomass min age
-* Depletion basis
-* Depletion denominator fraction
-* SPR report basis
-* End Of File
+* [Final convergence](#final-convergence)
+* [Retrospective year](#retrospective-year)
+* [Summary biomass min age](#-summary-biomass-min-age)
+* [Depletion basis](#depletion-basis)
+* [Depletion denominator fraction](#depletion-denominator-fraction)
+* [SPR report basis](#spr-report-basis)
+* [F reporting units](#Fstd-report-units)
+  * (If F reporting units = 4) [Age Range](#age-range)
+* [F Report Basis](#f-report-basis)
+* [End Of File](#end-of-file)
 
 ---
 
@@ -176,7 +179,7 @@ Similarly, the value option allows examination of model output after completing 
 Burn value for MCMC runs
 
 ## MCMC thin
-Thinning value for MCMC runs 
+Thinning value for MCMC runs
 
 ## Jitter
 Option | Description
@@ -189,20 +192,20 @@ The *Jitter* factor is multiplied by a random normal deviation *rdev=N(0,1)*, to
 
 <!--TODO: Embed math equations in GFM -->
 ```
-                               P    - P    + 0.0.0000002       
-          1                     max    min                     
-temp =  - - rdev * jitter * ln(------------------------- - 1) 
-          2                    P    - P    + 0.0.0000001       
-                                val    min                     
+                               P    - P    + 0.0.0000002
+          1                     max    min
+temp =  - - rdev * jitter * ln(------------------------- - 1)
+          2                    P    - P    + 0.0.0000001
+                                val    min
 ```
 with the final *jittered* setting parameter value back transformed as:
 
 ```
-                     P    - P     
+                     P    - P
                       max    min  
 P     =  P     +  ----------------
  new      min           - 2 * temp
-                  1 + e           
+                  1 + e
 ```
 
 ## SD Report Start
@@ -232,13 +235,122 @@ Any Positive Interger | Number of years to read
 
 In a long time series appilication, the model variance calculations will be smaller and faster if not all years are included in the SD report. For example, the annual SD report could start at 1960 and the extra option could select SD report in each decade before then.
 
-### Condition: If Extra SD Report Years > 0 
+## Condition: If Extra SD Report Years > 0
 If the value of *Extra SD Report Years* > 0, include the following parameter line after [Extra SD Report Years](#extra-sd-report-years).
 
 #### SD Reporting Years
 Vector of years for additional reporting.
 
-*Example Values:*   
+*Example Values:*
 ```
 1940 1950 #vector of year values
 ```
+
+## Final Convergence
+
+*Default Value: 0.0001*
+
+The default value, 0.0001, is reasonable for the change in *logL* denoting convergence.  For applications with big data and thus a large total *logL* value, a larger convergence criterion may still provide acceptable convergence.
+
+## Retrospective Year
+Option  | Description
+--------|------------
+0       | none
+-X      | Retrospective year relative to end year.
+
+*Typical Value: 0*
+
+Adjusts the model end year and disregards data after this year.  May not handle time varying parameters completely.
+
+## Summary Biomass Min Age
+
+*Typical value: 2*
+
+Minimum integer age for inclusion in the summary biomass used for reporting and for calculation of total exploitation rate
+
+## Depletion Basis
+Option  | Description
+--------|------------
+0       | skip
+1       | X*B<sub>0</sub>
+2       | X*B<sub>msy</sub>
+3       | X*B<sub>styr</sub>
+
+*Typical Value: 1*
+
+Selects the basis for the denominator when calculating degree of depletion in SSB.  The calculated values are reported to the SD report
+
+## Depletion denominator fraction
+
+*Typical Value: 0.40*
+
+The fraction (The X value of the [Depletion Basis](#depletion-basis) formulas) for depletion denominator to calculate the ratio SSBy / (0.40*SSB0)
+
+## SPR Report Basis
+Option  | Description
+--------|------------
+0       | Skip
+1       | Use 1-SPR<sub>target</sub>
+2       | Use 1-SPR at MSY
+3       | Use 1-SPR at B<sub>target</sub>
+4       | No denominator, report actual 1-SPR values
+
+*Typical Value: 1*
+
+**SPR** is the equilibrium SSB per recruit that would result from the current year’s pattern and intensity of F’s.  The SPR approach to measuring fishing intensity was implemented because the concept of a single annual F does not exist in SS.
+
+The quantities identified by option 1, 2, and 3 here are all calculated in the benchmarks section.  Then the one specified here is used as the selected denominator in a ratio with the annual value of `1.0 – SPR`.
+
+This ratio (and its variance) is reported to the SD report output for the years selected above in the SD report year selection.
+
+## F_std report units
+Option  | Description
+--------|------------
+0       | Skip
+1       | Exploitation rate in biomass
+2       | Exploitation rate in numbers
+3       | Sum(full F’s by fleet)
+4       | Population F for range of ages
+
+*Typical Value: 4*
+
+Also known as *F_report*, or *F_report_units*
+
+Options **1** and **2** use total catch for the year and summary abundance at the beginning of the year, so combines seasons and areas.  But if most catch occurs in one area and there is little movement between areas, this ratio is not informative about the F in the area where the catch is occurring.
+
+Option **3** is a simple sum of the full F’s by fleet, so may provide nonintuitive results when there are multi areas or seasons or when the selectivities by fleet do not have good overlap in age.  
+
+Option **4** is a real annual F calculated as a numbers weighted F for a specified range of ages (read below).  The F is calculated as Z-M where Z and M are each calculated an ln(N(t+1)/N(t)) with and without F active, respectively. The numbers are summed over all biology morphs and all areas for the beginning of the year, so subsumes any seasonal pattern.
+
+In addition to SPR, an additional proxy for annual F can be specified in this parameter.  As with SPR, the selected quantity will be calculated annually and in the benchmarks section.  The ratio of the annual value to the selected (see F report basis below) benchmark value is reported to the SD report vector.
+
+## Condition: if F_std report units = 4
+If the value of *F_std report units* or *F_report_units is *4* include the following parameter line after [F_std report units](#fstd-report-units).
+
+###Age Range
+
+*Typical Value: 14 17*
+
+Specify range of ages.  Upper age must be less than max age because of incomplete handling of the accumulator age for this calculation.
+
+## F report basis
+Option  | Description
+--------|------------
+0       | Not relative, report raw values
+1       | Use F_std value corresponding to SPR<sub>target</sub>
+2       | Use F_std value corresponding to F<sub>msy</sub>
+3       | Use F_std value corresponding to F<sub>Btarget </sub>
+
+*Typical Value: 1*
+
+Selects the denominator to use when reporting the [F_std report values](#fstd-report-units). Note that order of these options differs from the biomass report basis options
+
+## End of file
+
+To denote the end of the starter file put `999` as your last line.
+
+```
+999 #End of file
+```
+
+`999` must be the first 3 characters with no preceding tab or spaces in the character line in order to be correctly parsed by the #C comment reader. Inline comments after `999` are optional, and should not the effect the parser.
