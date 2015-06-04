@@ -32,7 +32,7 @@ Some parameters in the starter file may require additional information in the im
 * [Depletion basis](#depletion-basis)
 * [Depletion denominator fraction](#depletion-denominator-fraction)
 * [SPR report basis](#spr-report-basis)
-* [F reporting units](#Fstd-report-units)
+* [F reporting units](#f_std-report-units)
   * (If F reporting units = 4) [Age Range](#age-range)
 * [F Report Basis](#f-report-basis)
 * [End Of File](#end-of-file)
@@ -343,7 +343,7 @@ Option  | Description
 
 *Typical Value: 1*
 
-Selects the denominator to use when reporting the [F_std report values](#fstd-report-units). Note that order of these options differs from the biomass report basis options
+Selects the denominator to use when reporting the [F_std report values](#f_std-report-units). Note that order of these options differs from the biomass report basis options
 
 ## End of file
 
