@@ -325,7 +325,7 @@ Option **4** is a real annual F calculated as a numbers weighted F for a specifi
 In addition to SPR, an additional proxy for annual F can be specified in this parameter.  As with SPR, the selected quantity will be calculated annually and in the benchmarks section.  The ratio of the annual value to the selected (see F report basis below) benchmark value is reported to the SD report vector.
 
 ## Condition: if F_std report units = 4
-If the value of *F_std report units* or *F_report_units is *4* include the following parameter line after [F_std report units](#fstd-report-units).
+If the value of *F_std report units* (or *F_report_units*) is 4 include the following parameter line after [F_std report units](#fstd-report-units).
 
 ###Age Range
 
