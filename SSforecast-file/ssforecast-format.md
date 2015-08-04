@@ -17,14 +17,14 @@ forecast module Appendix.
 * [SPR target](#spr-target)
 * [Biomass target](#biomass-target)
 * [Benchmarks Years](#benchmark-years)
-* Benchmark Relative F Basis
-* Forecast
-* N Forecast Years
-* F Scalar
-* Forcast Years
-* Control Rule
-* Control Rule Upper Limit
-* Control Rule Lower Limit
+* [Benchmark Relative F Basis](#benchmark-relative-f-basis)
+* [Forecast](#forecast)
+* [N Forecast Years](#n-forecast-years)
+* [F scalar](#f-scalar)
+* [Forecast Years](#forecast-years)
+* [Control Rule](#control-rule)
+* [Control Rule Upper Limit](#control-rule-upper-limit)
+* [Control Rule Lower Limit](#control-rule-lower-limit)
 * Control Rule Buffer
 * Number Of Forecast Loops
 * First forecast loop with stochastic recruitment
@@ -106,6 +106,8 @@ SS searches for F multiplier that will produce this level of spawning biomass (R
 SS searches for F multiplier that will produce this level of spawning biomass relative to unfished value. This is not “per recruit” ([SPR<sub>Target</sub>](#spr-target))   and takes into account the Spawner-Recruitment relationship.
 
 ## Benchmark Years
+Requires 6 years entered: beginning and ending years for biology, selectivity, and relative Fs. (*beg_bio*; *end_bio*; *beg_selex*; *end_selex*; *beg_relF*; *end_relF* ) These values will be used in to calculate benchmark quantities.  
+
 Option | Description
 -------| ----
 >0     | Absolute Year
@@ -113,6 +115,66 @@ Option | Description
 
 *Typical Value: 0 0 0 0 0 0*
 
-Requires 6 years entered: beginning and ending years for biology, selectivity, and relative Fs. (*beg_bio*; *end_bio*; *beg_selex*; *end_selex*; *beg_relF*; *end_relF* ) These values will be used in to calculate benchmark quantities.  
-
 Option to enter the actual year or values of 0 or negative integer values that will set the value to the model ending year.  
+
+## Benchmark Relative F Basis
+Option | Description
+-------| ----
+1      | Use year range
+2      | Set *relF* same as forecast below
+
+*Typical Value: 1*
+
+## Forecast
+Option | Description
+-------| -----------
+0      | None (no forecast years)
+1      | Set to F(SPR)
+2      | Search for F(MSY)
+3      | Set to F(B<sub>target</sub>)
+4      | Set to F(endyr)
+5      | Input annual [F scalar](#f-scalar)
+
+*Typcical Value: 2*
+
+SS will ignore this parameter if benchmarks are disabled.
+
+If Benchmarks is enabled, then *F_spr* and *F_btgt* are calculated. This parameter determines whether *F_MSY* is also calculated or is set to one of these other quantities
+
+## N Forecast Years
+*Typical Value: 10*
+
+Number of forecast years
+
+## F Scalar
+*Typical Value: 1*
+
+Used if [Forecast](#forecast) parameter is set to 5
+
+## Forecast Years
+Requires 4 years entered: Beginning and ending years for selectivity, and relative Fs (*beg_selex*; *end_selex*; *beg_relF*; *end_relF*). These will be used in population forecasts.
+
+Option | Description
+-------| -----------
+>0     | Absolute year
+<=0    | Year relative to end year
+
+*Typical Value: 0 0 0 0*
+
+Option to enter the actual year or values of 0 or negative integer values that will set the value to the model ending year.
+
+## Control Rule
+Option | Description
+-------| -----------
+1      | catch = f(SSB) U.S. West Coast
+2      | F = f(SSB)
+
+## Control Rule Upper Limit
+*Typical Value: 0.4*
+
+Biomass level (as fraction of B0) above which F is constant
+
+## Control Rule Lower Limit
+*Typical Value: 0.1*
+
+Biomass level (as fraction of B0) below which F is set to 0.0
