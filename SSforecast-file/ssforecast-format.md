@@ -1,8 +1,6 @@
 # Forecast File
 
-The specification of options for forecasts is contained in the mandatory input
-file named `FORECAST.SS`. For additional details on the forecast file see the
-forecast module Appendix.
+The required input file `FORECAST.SS` contains the settings for the Stock Synthesis forecast procedure. For additional details on the forecast file see the forecast module Appendix.
 
 ## File Structure
 
@@ -31,11 +29,11 @@ forecast module Appendix.
 * [Forecast Loop Control #3](#forecast-loop-control-3)
 * [Forecast Loop Control #4](#forecast-loop-control-4)
 * [Forecast Loop Control #5](#forecast-loop-control-5)
-* First Year for Caps and Allocations
-* Implmentation Error
-* Rebuilder
-* Rebuilder Start Year (Y initial)
-* Fleet Relative F
+* [First Year for Caps and Allocations](#first-year-for-caps-and-allocations)
+* [Implementation Error](#implementation-error)
+* [Rebuilder](#rebuilder)
+* [Rebuilder Start Year (Y initial)](#rebuilder-start-year-y-initial)
+* [Fleet Relative F](#fleet-relative-f)
 * Basis for Maximum Forecast Catch
 * [End Of File](#end-of-file)
 
@@ -82,7 +80,7 @@ If *Forecast Method* is 5, include the following parameter lines after [Forecast
 
 First year for recent ave F relative to end year. Read a range of years for calculation of recent average F *(not yet implemented)*
 
-####Recent average F last year
+#### Recent average F last year
 *Typical Value: 0*
 
 Last year for recent average F. Will be used to calculate an average F multiplier for each fleet over a range of years
@@ -193,7 +191,49 @@ Number of loops. Ranges from 1-3. Defaults to 3 within Stock Synthesis
 *Typical Value: 3*
 
 ## Forecast Loop Control #3
+*Typical Value: 0*  
+*Reserved for future use*
 
 ## Forecast Loop Control #4
+*Typical Value: 0*  
+*Reserved for future use*
 
 ## Forecast Loop Control #5
+*Typical Value: 0*  
+*Reserved for future use*
+
+## First Year for Caps and Allocations
+*Typical Value: 2015*
+
+Value should be set after the years with fixed inputs.
+
+## Implementation Error
+*Typical Value: 0*
+
+This is the log of the ratio between the realized catch and the target catch in the forecast. (set value > 0.0 to cause active implementation error)
+
+## Rebuilder
+Option | Description
+-------| -----------
+0      | omit West Coast rebuilder output
+1      | do rebuilder output
+
+*Typical Value: 0*
+
+Option to omit/include rebuilder output related to the West Coast groundfish Assesment model
+
+## Rebuilder start year (Y initial)
+Option | Description
+-------| -----------
+>0     | Year of current age Structure
+-1     | Set to *endyear*+1
+
+*Typical Value: 2004*
+
+## Fleet Relative F
+Option | Description
+-------| -----------
+1      | Use First-Last alloc year
+2      | Read `seas(row) * fleet(col)` set below
+
+*Typical Value: 1*
