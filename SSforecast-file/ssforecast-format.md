@@ -25,12 +25,12 @@ forecast module Appendix.
 * [Control Rule](#control-rule)
 * [Control Rule Upper Limit](#control-rule-upper-limit)
 * [Control Rule Lower Limit](#control-rule-lower-limit)
-* Control Rule Buffer
-* Number Of Forecast Loops
-* First forecast loop with stochastic recruitment
-* Forecast Loop Control #3
-* Forecast Loop Control #4
-* Forecast Loop Control #5
+* [Control Rule Buffer](#control-rule-bufer)
+* [Number Of Forecast Loops](#number-of-forecast-loops)
+* [First forecast loop with stochastic recruitment](#first-forecast-loop-with-stochastic-recruitment)
+* [Forecast Loop Control #3](#forecast-loop-control-3)
+* [Forecast Loop Control #4](#forecast-loop-control-4)
+* [Forecast Loop Control #5](#forecast-loop-control-5)
 * First Year for Caps and Allocations
 * Implmentation Error
 * Rebuilder
@@ -178,3 +178,22 @@ Biomass level (as fraction of B0) above which F is constant
 *Typical Value: 0.1*
 
 Biomass level (as fraction of B0) below which F is set to 0.0
+
+## Control Rule Buffer
+*Typical Value: 0.75*
+
+Multiplier applied to forecast F before calculating catch.
+
+## Number of Forecast Loops
+*Default Value: 3*
+
+Number of loops. Ranges from 1-3. Defaults to 3 within Stock Synthesis
+
+## First forecast loop with stochastic recruitment
+*Typical Value: 3*
+
+## Forecast Loop Control #3
+
+## Forecast Loop Control #4
+
+## Forecast Loop Control #5
