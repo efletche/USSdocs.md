@@ -34,8 +34,15 @@ The required input file `FORECAST.SS` contains the settings for the Stock Synthe
 * [Rebuilder](#rebuilder)
 * [Rebuilder Start Year (Y initial)](#rebuilder-start-year-y-initial)
 * [Fleet Relative F](#fleet-relative-f)
-* Basis for Maximum Forecast Catch
-* [End Of File](#end-of-file)
+* [Basis for Maximum Forecast Catch](#basis-for-maximum-forecast-catch)
+  * (If Fleet Relative F is 2)
+    * [Fleet Allocation by Relative F Fraction](#fleet-allocation-by-relative-f-fraction)
+    * [Max Total Catch by Fleet](#max-total-catch-by-fleet)
+    * [Max Total Catch by Area](#max-total-catch-by-area)
+    * [Fleet Assignment to Allocation Group](#fleet-assignment-to-allocation-group)
+* [Basis for Forecast Catch](#basis-for-forecast-catch)
+* [Input Fixed Catch Values](#input-fixed-catch-values-optional)
+* [End Of Input](#end-of-input)
 
 
 ## `#C` Forecast Comment
@@ -61,8 +68,8 @@ Option | Description
 2      | F(MSY)
 3      | F(B<sub>target</sub>)
 4      | F(endyr)
-5      | Average recent F (enter years) --- unimplemented
-6      | F<sub>multi</sub> --- unimplemented
+5      | Average recent F (enter years) --- unimplemented?
+6      | F<sub>multi</sub> --- unimplemented?
 
 *Typical Value: 1*
 
@@ -210,7 +217,9 @@ Value should be set after the years with fixed inputs.
 ## Implementation Error
 *Typical Value: 0*
 
-This is the log of the ratio between the realized catch and the target catch in the forecast. (set value > 0.0 to cause active implementation error)
+This is (the standard deviation of) the log of the ratio between the realized catch and the target catch in the forecast.
+
+Set value `> 0.0` to cause active implementation error
 
 ## Rebuilder
 Option | Description
@@ -237,3 +246,93 @@ Option | Description
 2      | Read `seas(row) * fleet(col)` set below
 
 *Typical Value: 1*
+
+## Basis for Forecast Catch
+Option | Description
+-------| -----------
+2      | Cap in terms of total biomass
+3      | Cap in terms of retained catch biomass
+5      | Cap in terms of total catch numbers
+6      | Cap in terms of retained catch numbers
+
+*Typical Value: 2*
+
+
+## Condition: if Fleet Relative F is 2
+If *Fleet Relative F* is 6, include the following parameter lines after [Basis for Forecast Catch](#basis-for-maximum-forecast-catch).
+
+#### Fleet Allocation by Relative F Fraction
+
+*Typical Value: 0.1 0.8 0.1*
+
+The fraction of the forecast F value. For a multiple area model, the user must define a fraction for each fleet and each area. The total fractions must sum to one over all fleets and areas.
+
+Example
+```
+#Fleet_1 Fleet_2 ... Fleet_X
+0.10 0.10 0.30 # Area1
+0.10 0.10 0.30 # Area2
+```
+
+#### Max total Catch by Fleet
+Option | Description
+-------| -----------
+-1     | no Max
+Positive value | Fleet max total catch
+
+*Typical Value: -1 -1 -1*
+
+Must enter value for each fleet.
+
+
+#### Max Total Catch by Area
+Option | Description
+-------| -----------
+-1     | no Max
+Positive Value | Area max total catch
+
+*Typical Value: -1*
+
+Must enter value for each area.
+
+#### Fleet Assignment to Allocation Group
+Option | Description
+-------| -----------
+0      | Fleet not included in allocation group
+
+*Typical Value: 0 0 0*
+
+Enter group ID# for each fleet
+
+## Forecast Catch Levels
+
+*Typical Value: 0*
+
+Number of forecast catch levels to input, else calculated from the forecast F.
+
+## Basis for Forecast Catch
+Option | Description
+-------| -----------
+2      | Dead Catch
+3      | Retained Catch
+99     | Input Harvest Rate (F)
+
+
+*Typical Value: 3*
+
+## Input Fixed Catch Values (optional)
+
+*Typical Value:*
+```
+#Year Season Fleet Catch(or_F)
+2012 1 1 1200
+```
+
+## End of Input
+To denote the end of the forecast file put `999` as your last line.
+
+```
+999 #End of file
+```
+
+`999` must be the first 3 characters with no preceding tab or spaces in the character line in order to be correctly parsed by the #C comment reader. Inline comments after `999` are optional, and should not the effect the parser.
