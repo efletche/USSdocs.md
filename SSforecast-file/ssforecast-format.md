@@ -259,7 +259,7 @@ Option | Description
 
 
 ## Condition: if Fleet Relative F is 2
-If *Fleet Relative F* is 6, include the following parameter lines after [Basis for Forecast Catch](#basis-for-maximum-forecast-catch).
+If *Fleet Relative F* is 6, include the following parameter lines after [Basis for Maximum Forecast Catch](#basis-for-maximum-forecast-catch).
 
 #### Fleet Allocation by Relative F Fraction
 
