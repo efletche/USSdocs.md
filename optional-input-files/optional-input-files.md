@@ -1,7 +1,7 @@
 # Optional Input Files
 
 ## RUNNUMBER.SS
-This file contains a single integer value.  It is read when the program starts, incremented by 1, used when processing the profile value inputs (see [*PROFILEVALUES.SS*](#procilevaluses-ss)), used as an identifier in the batch output, then saved with the incremented value.  Note that this incrementation may not occur if a run crashes.  
+This file contains a single integer value.  It is read when the program starts, incremented by 1, used when processing the profile value inputs (see [*PROFILEVALUES.SS*](#profilevalusesss)), used as an identifier in the batch output, then saved with the incremented value.  Note that this incrementation may not occur if a run crashes.  
 
 ## PROFILEVALUES.SS
 This file contains information for changing the value of selected parameters for each run in a batch.  In the control file, each parameter that will be subject to modification by `PROFILEVALUES.SS` is designated by setting its phase to `-9999`.  
